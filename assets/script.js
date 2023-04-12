@@ -23,7 +23,7 @@ var q8 = ["Which of the following is the universal selector in CSS?", "&", "^", 
 var q9 = ["Which attribute is used to link images to an HTML file?", "src", "class", "id", "link", 1];
 var end = []
 var questionArray = [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, end];
-var questionCounter = 9;
+var questionCounter = 0;
 
 
 //This function will start the quiz timer
