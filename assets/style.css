@@ -19,16 +19,22 @@ main {
     width: 70%;
     height: 500px;
     padding: 20px;
-    background-color: blue;
+    background-color: white;
     
 }
 
 main section {
     padding: 5px;
     margin: 20px;
-    background-color: green;
+    background-color: white;
     
     
+}
+
+form {
+    padding: 5px;
+    margin: 20px;
+    background-color: white;
 }
 
 main .quiz-ans {
@@ -43,4 +49,13 @@ main .quiz-ans {
 .quiz-ans div {
     display: flex;
     justify-content: left;
+}
+
+#start-btn {
+    margin: 30px;
+}
+
+#start-btn-card {
+    display: flex;
+    justify-content: center;
 }
