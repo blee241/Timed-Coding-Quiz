@@ -190,7 +190,7 @@ submitNameBtnEl.addEventListener('click', function(event){
     window.localStorage.setItem(nameInputEl, score);
     console.log(nameInputEl);
 })
-
+var stopPrint = false;
 var highScoresBtnEl = document.getElementById("high-scores-btn");
 highScoresBtnEl.addEventListener('click', function(){
     quizQuestion.textContent = "High scores";
@@ -203,11 +203,15 @@ highScoresBtnEl.addEventListener('click', function(){
     initialsFormEl.setAttribute("style", "display: none;");
     //Shows high scores in local storage
     highScoresListEl.setAttribute("style", "display: visible;");
-    for (let i = 0; i < localStorage.length; i++) {
-        
-        highScoresListEl.textContent = localStorage.key(i) + "   " + localStorage.getItem(localStorage.key(i));
-        var linebreak = document.createElement(br);
-        document.body.children(1).children(2).appendChild(linebreak);
+    if (!stopPrint) {
+        for (let i = 0; i < localStorage.length; i++) {
+            var highScoreText = localStorage.key(i) + "   " + localStorage.getItem(localStorage.key(i));
+            highScoresListEl.append(highScoreText); 
+            var linebreak = document.createElement("br");
+            document.body.children[1].children[2].appendChild(linebreak);
+            console.log(i);
+        }
+        stopPrint = true;
     }
 })
 

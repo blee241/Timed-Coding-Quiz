@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a timed coding quiz that is powered by JavaScript.
+This is a timed coding quiz that is powered by JavaScript. It demonstrates how JavaScript logic can be used to create functionality on a website by linking different HTML elements together.
 
 ## Installation
 
@@ -19,7 +19,13 @@ The timer will start to count down! Try to get as many questions correct as you 
 
 ![Select the correct answer to the question](./assets/images/screenshot2.jpg)
 
+Enter your name at the end of the quiz to save your score.
 
+![Enter your initials](./assets/images/screenshot3.jpg)
+
+Click the high scores button to see the saved scores and names.
+
+![Click the high scores button](./assets/images/screenshot4.jpg)
 ## License
 
 Copyright 2023 Bryant Lee
