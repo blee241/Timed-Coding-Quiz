@@ -192,8 +192,25 @@ submitNameBtnEl.addEventListener('click', function(event){
 })
 
 var highScoresBtnEl = document.getElementById("high-scores-btn");
-highScoresBtnEl.addEventListener('click', function(event){
-    event.preventDefault();
+highScoresBtnEl.addEventListener('click', function(){
     quizQuestion.textContent = "High scores";
-    console.log("h")
+    startBtnCardEl.setAttribute("style", "display: none;") //Hides everything
+    for (var i = 0; i < answerBtnEls.length; i++) {
+        answerBtnEls[i].setAttribute("style", "display: none;")
+    }
+    responseEl.setAttribute("style", "display: none;");
+    time = 1;
+    initialsFormEl.setAttribute("style", "display: none;");
+    //Shows high scores in local storage
+    highScoresListEl.setAttribute("style", "display: visible;");
+    for (let i = 0; i < localStorage.length; i++) {
+        
+        highScoresListEl.textContent = localStorage.key(i) + "   " + localStorage.getItem(localStorage.key(i));
+        var linebreak = document.createElement(br);
+        document.body.children(1).children(2).appendChild(linebreak);
+    }
 })
+
+//Hides high score list
+var highScoresListEl = document.querySelector("#high-scores-list");
+highScoresListEl.setAttribute("style", "display: none;");
