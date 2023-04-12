@@ -23,7 +23,8 @@ var q8 = ["Which of the following is the universal selector in CSS?", "&", "^", 
 var q9 = ["Which attribute is used to link images to an HTML file?", "src", "class", "id", "link", 1];
 var end = []
 var questionArray = [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, end];
-var questionCounter = 0;
+var questionCounter = 9;
+var score = 0;
 
 
 //This function will start the quiz timer
@@ -48,6 +49,7 @@ var nextQuestion = function() {
     ans4El.textContent = questionArray[questionCounter][4];
     console.log("Correct answer for current question: " + questionArray[questionCounter][5]);
     if (questionCounter == 10) { //Hides answer button and response elements
+        score = time;
         quizQuestion.textContent = "Your final score is " + time + "! Enter your initials to save your score.";
         time = 1;
         
@@ -55,22 +57,14 @@ var nextQuestion = function() {
             answerBtnEls[i].setAttribute("style", "display: none;")
         }
         responseEl.setAttribute("style", "display: none;");
-        //Shows score and submission
-        // var submitCard = document.createElement("section");
-        // submitCard.textContent = "Enter your initials: ";
-        // var initialsInputEl = document.createElement("input");
-        // submitCard.appendChild(initialsInputEl);
-        // var submitInitialsBtnEl = document.createElement("button");
-        // submitInitialsBtnEl.setAttribute("style", "margin: 10px;");
-        // submitInitialsBtnEl.textContent = "Submit";
-        // submitCard.appendChild(submitInitialsBtnEl);
-        // document.body.children[1].appendChild(submitCard);
-        initialsSubmitCardEl.setAttribute("style", "display: visible;");
+        //Shows initials submission form
+        initialsFormEl.setAttribute("style", "display: visible;");
     }
 }
 
-var initialsSubmitCardEl = document.getElementById("initials-form");
-initialsSubmitCardEl.setAttribute("style", "display: none;");
+//Hides initials submission form on page load
+var initialsFormEl = document.getElementById("initials-form");
+initialsFormEl.setAttribute("style", "display: none;");
 
 //This hides the answer buttons on page load
 for (var i = 0; i < answerBtnEls.length; i++) {
@@ -84,7 +78,7 @@ responseEl.setAttribute("style", "display: none;");
 var showWrong = function() {
     responseEl.setAttribute("style", "display: visible;");
     responseEl.textContent = "Incorrect!"
-    let count = 2;
+    let count = 3;
     var responseTimer = setInterval(function() {
         count--;
         
@@ -100,7 +94,7 @@ var showWrong = function() {
 var showRight = function() {
     responseEl.setAttribute("style", "display: visible;");
     responseEl.textContent = "Correct!"
-    let count = 2;
+    let count = 3;
     var responseTimer = setInterval(function() {
         count--;
         
@@ -185,8 +179,21 @@ ans4El.addEventListener('click', function () {
     }
 })
 
+
+
+
 //Saves initials and score to local storage
-// submitInitialsBtnEl.addEventListener('click', function() {
-//     window.localStorage.setItem(initialsInputEl, time);
-//     console.log("hi")
-// })
+var submitNameBtnEl = document.getElementById("submit-name-btn"); 
+submitNameBtnEl.addEventListener('click', function(event){
+    event.preventDefault();
+    var nameInputEl = document.getElementById("name-input").value;
+    window.localStorage.setItem(nameInputEl, score);
+    console.log(nameInputEl);
+})
+
+var highScoresBtnEl = document.getElementById("high-scores-btn");
+highScoresBtnEl.addEventListener('click', function(event){
+    event.preventDefault();
+    quizQuestion.textContent = "High scores";
+    console.log("h")
+})
