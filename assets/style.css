@@ -1,0 +1,61 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 20px 30px;
+}
+
+nav section {
+    display: flex;
+}
+
+main {
+    margin: 30px auto;
+    width: 70%;
+    height: 500px;
+    padding: 20px;
+    background-color: white;
+    
+}
+
+main section {
+    padding: 5px;
+    margin: 20px;
+    background-color: white;
+    
+    
+}
+
+form {
+    padding: 5px;
+    margin: 20px;
+    background-color: white;
+}
+
+main .quiz-ans {
+    display: block;
+    padding: 5px;
+    margin: 20px;
+    width: 220px;
+    background-color: rgb(31, 218, 155);
+    
+}
+
+.quiz-ans div {
+    display: flex;
+    justify-content: left;
+}
+
+#start-btn {
+    margin: 30px;
+}
+
+#start-btn-card {
+    display: flex;
+    justify-content: center;
+}
